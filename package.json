@@ -1,6 +1,6 @@
 {
-  "name": "io.cordova.hellocordova",
-  "displayName": "HelloCordova",
+  "name": "com.example.stackpascal",
+  "displayName": "StackPascal",
   "version": "1.0.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "main": "index.js",
@@ -13,17 +13,37 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "cordova-android": "^9.0.0",
-    "cordova-ios": "^6.1.1",
+    "com.dtech.cordova.ios.vibrate": "^1.1.0",
+    "cordova-android": "^9.1.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-ios": "^6.2.0",
+    "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-app-version": "git+https://github.com/whiteoctober/cordova-plugin-app-version.git",
+    "cordova-plugin-disable-ios11-statusbar": "*",
+    "cordova-plugin-disable-ios14-statusbar": "*",
+    "cordova-plugin-hidescrollbar": "^1.0.2",
+    "cordova-plugin-splashscreen": "^6.0.0",
+    "cordova-plugin-statusbar": "^2.4.3",
+    "cordova-plugin-vibration": "^3.1.1",
     "cordova-plugin-whitelist": "^1.3.4"
   },
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-disable-ios14-statusbar": {},
+      "cordova-plugin-disable-ios11-statusbar": {},
+      "cordova-plugin-hidescrollbar": {},
+      "cordova-plugin-vibration": {},
+      "com.dtech.cordova.ios.vibrate": {},
+      "cordova-plugin-app-version": {},
+      "cordova-plugin-splashscreen": {}
     },
     "platforms": [
       "ios",
+      "browser",
       "android"
     ]
-  }
+  },
+  "dependencies": {}
 }

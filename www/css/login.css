@@ -1,0 +1,88 @@
+@keyframes example {
+    from {box-shadow: 0px 0px 15px 0px lightgray;}
+    to {box-shadow: 0px 0px 15px 0px rgb(237, 111, 111)}
+}
+
+#login-view{
+
+    height: 100%;
+
+    position: fixed;
+
+    z-index: 400000;
+
+    background-color: white;
+
+    top: 7%;
+
+    box-shadow: 0px 0px 1px 100vmax rgba(0,0,0,1);
+
+    border-radius: 10px 10px 0px 0px;
+}
+
+.login-fields{
+
+    
+    
+    width: 90%;
+    
+    margin-left: auto; 
+    
+    margin-right: auto;
+
+    border-radius: 9px;
+
+    box-shadow: 0px 0px 15px 0px lightgray;
+}
+
+.login-fields i{
+
+   color: gray;
+
+   font-size: 20px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+
+ box-shadow: 0 0 0 30px white inset !important;
+
+ -webkit-box-shadow: 0 0 0 30px white inset !important;
+
+ outline: none;
+}
+
+.login-fields input[type=text], .login-fields input[type=password]{
+
+    height: 50px;
+
+    outline: none;
+
+    background-color: white;
+
+    border: none;
+}
+
+.login-error{
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    box-shadow: 0px 0px 15px 0px rgb(237, 111, 111) !important;
+
+}
+
+.login-correct{
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    box-shadow: 0px 0px 15px 0px rgb(161, 220, 161) !important;
+
+}

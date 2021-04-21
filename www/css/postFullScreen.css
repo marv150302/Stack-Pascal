@@ -1,0 +1,111 @@
+#full-screen-post-username, .reply-username{
+
+    color: rgb(125, 121, 121);
+    
+    font-weight: bold;
+}
+
+#full-screen-post-date{
+
+    text-align: center;
+
+    color: lightgray;    
+}
+
+#full-screen-post-title{
+
+    text-align: center;
+}
+
+/*reply container*/
+.reply{
+
+    border-radius: 5px;
+
+    border: 1px solid rgb(201, 195, 195);
+
+}
+#full-screen-post-content{
+
+    width: 100%;
+    
+    margin-left: auto;
+    
+    margin-right: auto;
+    
+    background-color: white;
+
+    border-radius: 5px;
+
+    margin-top: 5%;
+
+    box-shadow: 0px 0px 10px 0px lightgray;
+}
+
+.reply-username, .reply-text, .reply-upvote{
+
+    float: left;
+
+    color: gray;
+
+    font-style: normal;
+}
+
+#reply-container{
+
+
+    border: 1px solid rgb(201, 195, 195);
+
+
+    background-color: rgb(240, 240, 240, 0.8);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    backdrop-filter: blur(10px);
+
+    width: 98%;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    color: lightgray;
+
+    border-radius: 5px;
+
+    box-shadow: 0px 40px 10px 0px lightgray;
+
+    height: 8%;
+
+}
+
+#reply-container input, #reply-container button{
+
+    outline: none;
+
+    border: none;
+
+    background-color: rgb(240, 240, 240, 0.8) !important;
+
+    -webkit-backdrop-filter: blur(10px);
+
+    backdrop-filter: blur(10px);
+}
+
+#reply-container button{
+
+    
+
+    color: rgb(247, 194, 68);
+
+    display: none;
+
+    outline: none;
+}
+
+
+
+.reply:last-child{
+
+    margin-bottom: calc(10% + 40px) !important;
+}

@@ -1,0 +1,28 @@
+#community-insights-row{
+
+    
+
+
+    border-radius: 5px;
+
+    /*box-shadow: 0px 2px 10px  lightgray;*/
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    /*box-shadow: 0px 2px 10px  lightgray;*/
+    
+    border-radius: 5px;
+
+    height: auto;
+    
+}
+
+#community-insights-row i, #community-insights-row p{
+    
+    font-style: normal;
+
+    color: rgb(247, 194, 68);
+
+    float: left;
+
+}

@@ -1,0 +1,15 @@
+.settings-icon{
+
+    border-right: 1px solid lightgray;
+}
+.settings-row{
+
+    transition: 0.3s;
+}
+.settings-row:active{
+
+    transform: scale(0.95);
+
+
+
+}

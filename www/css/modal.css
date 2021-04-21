@@ -1,0 +1,37 @@
+.modalView{
+
+    height: 85%;
+
+    z-index: 2; 
+
+    background-color: white;
+
+    border-radius: 15px 15px 0px 0px;
+
+    display: none;
+
+    box-shadow: 0px 0px 1px 100vmax rgba(0,0,0,0.8);
+
+}
+
+.modal-field{
+
+    height: 10%;
+
+    color: gray !important;
+
+    border: 1px solid rgb(201, 195, 195) !important;
+}
+
+.settings-modal{
+
+    z-index: 2; 
+
+    border: 1px solid red;
+}
+
+.user-input-fields{
+
+    border: 1px solid rgb(201, 195, 195) !important;
+}
+

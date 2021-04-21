@@ -1,0 +1,49 @@
+/*bottom icons css*/
+#bottom-bar{
+
+    height: 9%;
+
+    width: 100%;
+
+    border-top: 1px solid rgb(240, 234, 234);
+
+    background-color: rgba(255, 255, 255, 0.8);
+
+    -webkit-backdrop-filter: blur(5px);
+
+    backdrop-filter: blur(5px);
+
+    z-index: 1;
+
+    
+}
+/*#bottom-bar:not(#bottom-bar i),#bottom-bar:not(#bottom-bar p){
+
+    opacity: 0.9;
+}*/
+#bottom-bar i, p {
+
+    color: gray;
+
+   
+}
+
+#bottom-bar i {
+
+    font-size: 25px;
+
+    margin-top: 5%;
+
+}
+
+#bottom-bar p {
+
+    margin-bottom: 5%;
+
+    font-size: 10px;
+}
+
+div.active-bottom-icon i, div.active-bottom-icon p{
+
+    color: rgb(247, 194, 68) !important;
+}

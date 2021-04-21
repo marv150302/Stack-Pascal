@@ -1,0 +1,123 @@
+@keyframes example {
+    from {background-color: black;}
+    to {background-color: yellow;}
+}
+
+
+/*topbar css*/
+#top-bar{
+
+    position: fixed;
+
+    z-index: 2;
+
+    top: 0;
+
+    left: 0;
+
+    background-color: white;
+
+    border-bottom: 1px solid rgb(240, 234, 234);
+
+    /*animation-name: example;
+    
+    animation-duration: 4s;*/
+
+}
+
+
+#app-title, #top-bar i{
+
+    margin-top: 20%;
+
+    margin-bottom: 10%;
+}
+#app-title{
+
+    font-family: pixel;
+
+    color: black;
+
+    font-size: 23px;
+
+    text-align: center;
+
+}
+#top-bar i{
+
+    color: rgb(247, 194, 68);
+
+    font-size: 40px;
+
+    float: right;
+
+}
+
+
+
+
+
+.ptr--ptr, .ptr--ptr div{
+  
+    background-color: white;
+  
+    color: black !important;
+  
+    
+}
+/*this container is for the post and the pull to refresh*/
+
+
+#post-feed-container, #post-news-container{
+
+    display: inline-block;
+}
+
+
+#logo{
+
+
+    width: 100px;
+
+    height: 100px;
+    
+}
+
+#home-view-selector{
+    
+    position: sticky;
+
+    position: -webkit-sticky; /* Safari */
+
+    width: 90%;
+    
+    border-radius: 0px 0px 5px 5px;
+
+    z-index: 2;
+
+    border: 1px solid rgb(240, 234, 234);
+
+    font-weight: bold;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: rgba(237, 237, 237, 0.8);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    backdrop-filter: blur(10px);
+}
+
+#home-view-selector i, #home-view-selector p{
+
+    color: gray;
+}
+
+
+.active-home-view-selector-icon p, .active-home-view-selector-icon i{
+
+    color: black !important;
+}
+
+
+
