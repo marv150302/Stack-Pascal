@@ -17,9 +17,9 @@ News.prototype.loadNews = function () {
 
        const element = this.data[index];
 
-       let image_src = "http://"+server.IP+"/php/IBus/img/feed_post/" + element.id + ".png";
+       let image_src = "http://"+server.IP+"/php/"+ server.folder_name+"/img/feed_post/" + element.id + ".png";
 
-       //let pfp = "http://"+server.IP+"/php/IBus/img/" + user.id + "/" + "pfp/" + user.id +  ".png";
+       //let pfp = "http://"+server.IP+"/php/"+ server.folder_name+"/img/" + user.id + "/" + "pfp/" + user.id +  ".png";
 
        //let postIsLiked = user.likedPost.includes(element.ID);//check if post ID is present in our liked array containing ID of liked post
        

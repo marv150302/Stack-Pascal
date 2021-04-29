@@ -255,22 +255,29 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
 
     card.className = 'card';
 
-    card.style.height = "120px"
+    card.style.height = "auto"
 
 
     let username = document.createElement('h5');
 
-    username.innerHTML =  postDate + " " +  "<br> " +  " " +  postTitle;
+    username.innerHTML = "@" + postUsername;
 
     username.className = 'card-username';
 
     username.style.boxShadow = "none"
 
+
     username.style.borderBottom = "none"
+
+   // username.style.textTransform = 'uppercase'
 
     username.style.textAlign = "left"
 
-    username.style.marginLeft = "10px"
+    username.style.marginLeft = "5%"
+
+    username.style.color = "rgb(247, 194, 68)"
+
+    username.style.fontStyle = "oblique"
 
     username.style.backgroundColor = "white"
 
@@ -281,7 +288,6 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
     date.innerText = postDate;
 
     date.className = 'card-date';
-
 
 
     let cardImage = document.createElement('img');
@@ -300,15 +306,23 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
 
 
 
-    let title = document.createElement('h4');
+    let title = document.createElement('p');
     
     title.innerText = postTitle;
 
     title.className = 'card-title';
 
+    title.style.color = "gray"
+
+    title.style.textAlign = "center"
+
+    title.style.textTransform = "uppercase"
+
     let openButton = document.createElement("button")
 
-    openButton.innerHTML = "<i style='color:gray; font-size: 30px' class='bi bi-forward-fill'></i>"
+    
+
+    openButton.innerHTML = "<i  style='color:gray; font-size: 30px' class='bi bi-box-arrow-in-right'></i>"
 
     openButton.className = "open-button-from-post-result"
 
@@ -317,12 +331,12 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
 
     //appending
     card.appendChild(username)
+    card.appendChild(date)
+    card.appendChild(title);
     card.appendChild(openButton)
-    //card.appendChild(date)
-    //cardBody.appendChild(title);
 
     card.appendChild(cardBody);
-    //card.appendChild(cardImage)
+    card.appendChild(cardImage)
 
     let row = document.createElement("div")
     row.className ="row card-result-rows"    

@@ -1,139 +1,147 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        
-        <meta name="viewport" content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">       
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="css/jquery-ui.min.css">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/bottomBar.css">
-        <link rel="stylesheet" href="css/homeView.css">
-        <link rel="stylesheet" href="css/modal.css">
-        <link rel="stylesheet" href="css/searchView.css">
-        <link rel="stylesheet" href="css/card.css">
-        <link rel="stylesheet" href="css/profileView.css">
-        <link rel="stylesheet" href="css/login.css">
-        <link rel="stylesheet" href="css/community.css">
-        <link rel="stylesheet" href="css/settings.css">
-        <link rel="stylesheet" href="css/postFullScreen.css">
 
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
 
-        <!--topbar-->
-        <div class="container-fluid view home-view" id="top-bar" >
+    <meta name="viewport"
+        content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/bottomBar.css">
+    <link rel="stylesheet" href="css/homeView.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/searchView.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/profileView.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/postFullScreen.css">
 
-            <div class="row">
+</head>
 
-                <div class="col">
-                    <!--app title-->
-                    <h3 id="app-title">STACK <br> PASCAL</h3>
-                    
+<body>
+
+    <!--topbar-->
+    <div class="container-fluid view home-view" id="top-bar">
+
+        <div class="row">
+
+            <div class="col">
+                <!--app title-->
+                <h3 id="app-title">STACK <br> PASCAL</h3>
+
+            </div>
+
+            <div class="col" id="plus-button-for-user-functions">
+
+                <i onclick=" modal.show('#user-functions') " class="bi bi-plus"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--home view selector-->
+    <div class="container-fluid view home-view" id="home-view-selector">
+
+        <div class="row ">
+
+            <div class="col text-center non-active-home-view-selector-icon active-home-view-selector-icon"
+                onclick="switchHomeViewSelector(this, 'post-feed-container', 'left', 'post-news-container')"
+                id="home-icon" style="margin-top:2%;">
+
+                <div class="row ">
+
+                    <div class="col">
+
+                        <i class="bi bi-house-fill"></i>
+
+                    </div>
+
                 </div>
 
-                <div class="col" id="plus-button-for-user-functions">
+                <div class="row ">
 
-                    <i onclick=" modal.show('#user-functions') " class="bi bi-plus"></i>
+                    <div class="col">
+
+                        <p>Home</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col text-center non-active-home-view-selector-icon"
+                onclick="switchHomeViewSelector(this, 'post-news-container', 'right', 'post-feed-container')"
+                id="news-icon" style="margin-top:2%;">
+
+                <div class="row ">
+
+                    <div class="col">
+
+                        <i class="bi bi-newspaper "></i>
+
+                    </div>
+
+                </div>
+
+                <div class="row ">
+
+                    <div class="col">
+
+                        <p>News</p>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
-        
-        
-        <!--home view selector-->
-        <div class="container-fluid view home-view" id="home-view-selector"  >
 
-            <div class="row ">
-                
-                <div class="col text-center non-active-home-view-selector-icon active-home-view-selector-icon" onclick="switchHomeViewSelector(this, 'post-feed-container', 'left', 'post-news-container')"  id="home-icon" style="margin-top:2%;">
 
-                    <div class="row ">
-                        
-                        <div class="col">
 
-                            <i class="bi bi-house-fill"></i>
-                            
-                        </div>
+    </div>
 
-                    </div>
+    <!--login view-->
+    <div class="container-fluid  login-view" id="login-view" style="font-family: helvetica;">
 
-                    <div class="row ">
+        <div class="row d-flex align-items-center justify-content-center">
 
-                        <div class="col">
+            <div class="col-6">
 
-                            <p>Home</p>
+                <h3 style="text-align: center;" id="app-title">STACK <br> PASCAL</h3>
 
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="col text-center non-active-home-view-selector-icon" onclick="switchHomeViewSelector(this, 'post-news-container', 'right', 'post-feed-container')"  id="news-icon" style="margin-top:2%;">
-
-                    <div class="row ">
-                        
-                        <div class="col">
-
-                            <i  class="bi bi-newspaper "></i>
-                            
-                        </div>
-
-                    </div>
-
-                    <div class="row ">
-
-                        <div class="col">
-
-                            <p>News</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
+                <img style="width: 100%; margin-left: auto; margin-right: auto;" src="img/blaise-pascal.png" alt="">
 
             </div>
-
-        
 
         </div>
 
-        <!--login view-->
-        <div class="container-fluid  login-view" id="login-view" style="font-family: helvetica;">
 
-            <div class="row d-flex align-items-center justify-content-center">
+        <br>
 
-                <div class="col-6">
+        <div class="row" style="width: 95%; margin-left: auto; margin-right: auto;">
 
-                    <h3 style="text-align: center;" id="app-title">STACK <br> PASCAL</h3>
-
-                    <img style="width: 100%; margin-left: auto; margin-right: auto;" src="img/blaise-pascal.png" alt="">
-
-                </div>
-                
-            </div>
-
-            
-            <br>
-
-            <div class="row" style="width: 95%; margin-left: auto; margin-right: auto;">
-
-                <div class="col">
+            <div class="col">
 
 
-                    <h3 style="color: rgb(247, 194, 68);" >Login</h3>
-
-                </div>
+                <h3 style="color: rgb(247, 194, 68);">Login</h3>
 
             </div>
 
-            <!--<div class="row">
+        </div>
+
+        <!--<div class="row">
                 
                 <div class="col">
 
@@ -143,1305 +151,1344 @@
 
             </div>-->
 
-            <div class="row d-flex align-items-center justify-content-center login-fields" >
+        <div class="row d-flex align-items-center justify-content-center login-fields">
 
-                <div class="col-1">
+            <div class="col-1">
 
-                    <i class="bi bi-envelope-fill"></i>
+                <i class="bi bi-envelope-fill"></i>
+
+            </div>
+
+            <div class="col-10">
+
+                <input style="width: 100%;" type="email" name="" id="user-email">
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row d-flex align-items-center justify-content-center login-fields">
+
+            <div class="col-1">
+
+                <i class="bi bi-lock-fill"></i>
+
+            </div>
+
+            <div class="col-10">
+
+                <input style="width: 100%;" type="password" name="" id="user-password">
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="row text-center button" style="height: 7%;" onclick="login.login()">
+
+            <div class="col text-center">
+
+                <p>Login</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row text-center">
+
+            <div class="col">
+
+                <p><i>Forgot password?</i> <strong onclick="console.log('registering')">Register</strong></p>
+
+                <br>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <!--home-news-views-slider-->
+    <div id="slider" class="swipe view home-view">
+        <div class="swipe-wrap">
+            <!--home view-->
+            <div class="container-fluid  home-view home-selector-view post-feed-container" id="post-feed-container">
+
+                <div class="post-container " id="post-container"></div>
+
+                <br>
+
+            </div>
+            <!--news view-->
+            <div class="container-fluid   news-view home-selector-view post-news-container" id="post-news-container">
+
+                <div class="news-container " id="news-container"></div>
+
+                <br>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--search view-->
+    <div class="container-fluid view search-view">
+
+        <div class="row" id="search-bar" style="margin-right: auto; margin-left: auto;">
+
+            <div class="col-1" style="margin-top: 3%;">
+
+                <i style="color: black;" class="bi bi-search"></i>
+
+            </div>
+
+            <div class="col-7">
+
+                <input type="text" name="" id="search-text">
+
+            </div>
+
+            <div class="col">
+
+                <p onclick="post.loadSearchResult($('#search-text').val())" class="search-button"
+                    style="display: none;">Search</p>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="container-fluid" id="search-result-container">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <!--profile view-->
+    <div class="container-fluid view profile-view" id="profile-view">
+        <br>
+
+        <!--profile info-->
+
+        <div class="row">
+
+            <div id="profile-info" class="col text-center">
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <p id="profile-username">Marvel</p>
+
+                    </div>
 
                 </div>
 
-                <div class="col-10">
+                <div class="row" style="width: 90%; margin-left: auto; margin-right: auto; ">
 
-                    <input style="width: 100%;" type="email" name="" id="user-email">
+                    <img class="img-fluid " id="profile-view-profile-picture" alt="">
+
+                </div>
+
+                <div class="row " id="profile-insights-row">
+
+                    <div class="col text-center">
+
+                        <div class="row">
+
+                            <div class="col" style="margin-top: 5%;">
+
+                                <p>Likes</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row text-center">
+
+                            <div class="col" style="margin-bottom: 5%;">
+
+                                <i id="number-of-likes" class="bi bi-heart"> 0</i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col text-center">
+
+                        <div class="row">
+
+                            <div class="col" style="margin-top: 5%;">
+
+                                <p>Posts</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col" style="margin-bottom: 5%;">
+
+                                <i class="bi bi-card-text"> 0</i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
 
-            <br>
+        </div>
 
-            <div class="row d-flex align-items-center justify-content-center login-fields" >
+        <!--profile post container-->
 
-                <div class="col-1">
+        <div class="container" id="profile-post-container">
 
-                    <i class="bi bi-lock-fill"></i>
+        </div>
 
-                </div>
+        <br>
 
-                <div class="col-10">
+    </div>
 
-                    <input style="width: 100%;" type="password" name="" id="user-password">
+    <!--other-view selector-->
+    <div class="container-fluid view other-view" id="other-view">
+        <!--Selector-->
+        <div class="row text-center">
 
-                </div>
+            <div class="col" style="border-right: 1px solid rgb(201, 195, 195);">
+
+                <i class="bi bi-people"></i>
 
             </div>
 
-            <br>
+            <div class="col">
+
+                <i class="bi bi-bag"></i>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--other view slider-->
+    <div class="">
+
+        <div id="other-view-slider" class="swipe ">
+
+            <div class="swipe-wrap">
 
 
-            <div class="row text-center button" style="height: 7%;" onclick="login.login()">
-                
-                <div class="col text-center">
+                <!--community view-->
+                <div class="container-fluid view other-view" style="margin-top: 5%;">
+
+                    <div class="row" id="community-input-container">
+
+                        <button style="border: 1px solid rgb(201, 195, 195); color: gray; border-radius: 5px "
+                            class="community-select-button" onclick="$('#community-select-modal').slideToggle()">Choose
+                            Community</button>
+
+
+                    </div>
+
+                    <!--resulted community name-->
+                    <div class="row text-center">
+
+                        <div class="col">
+
+                            <input onchange="console.log('changed')" type="text"
+                                style="display: block; font-family: Arial, Helvetica, sans-serif;"
+                                class="selected-community-value" id="selected-community-value-other-view" readonly>
+
+                        </div>
+                    </div>
+
+                    <!--community insihgts-->
+                    <div class="row text-center" id="community-insights-row">
+
+                        <div class="col">
+
+                            <i class="bi bi-people" id=" community-number-of-followers"> 0</i>
+
+                        </div>
+
+                        <div class="col">
+
+                            <i class="bi bi-signpost " id="community-number-of-post"> 0</i>
+                        </div>
+
+
+                    </div>
+
+                    <hr>
+
+                    <!--community post container-->
+                    <div id="post-container-other-view"></div>
+
+                </div>
+
+                <div class="container-fluid">
+
                     
-                    <p>Login</p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--settings view-->
+    <div class="container-fluid view settings-view">
+
+        <div class="row">
+
+            <div class="col">
+
+                <p>Settings</p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row settings-row" onclick="user.logout()">
+
+            <div class="col-2 settings-icon">
+
+                <i class="bi bi-lock"></i>
+            </div>
+
+            <div class="col" style="border-right: 1px solid lightgray;">
+
+                <p>Logout</p>
+            </div>
+        </div>
+
+        <br>
+
+
+        <div class="row settings-row">
+
+            <div class="col-2 settings-icon">
+
+                <i class="bi bi-trash"></i>
+            </div>
+
+            <div class="col">
+
+                <p>Clear Cache</p>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row settings-row">
+
+            <div class="col-2 settings-icon">
+
+                <i class="bi bi-bell"></i>
+            </div>
+
+            <div class="col">
+
+                <p>Clear Cache</p>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!--user functions-->
+    <div class="container fixed-bottom modalView" id="user-functions">
+        <!--close modal-->
+
+        <div class="row text-center" style="margin-top: 30%; margin-bottom: 20%;">
+
+            <div class="col">
+
+                <i onclick="modal.hide('#user-functions')" style="color: gray; font-size: 40px;"
+                    class="bi bi-x"></i>
+
+            </div>
+        </div>
+
+        <!--end close modal div-->
+
+        <div class="row" style="height: 20%;">
+
+            <div class="col user-function-button" style="margin-left: 5%;" onclick="modal.show('#post-image')">
+
+                <div class="row">
+
+                    <p>Post Image</p>
+
+                </div>
+
+                <div class="row">
+
+                    <i class="bi bi-image-fill"></i>
 
                 </div>
 
             </div>
 
+
+            <div class="col user-function-button" style="margin-right: 5%;" onclick="modal.show('#create-community')">
+
+                <div class="row">
+
+                    <p>Create Community</p>
+
+                </div>
+
+                <div class="row">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="row" style="height: 20%; margin-top: 5%;">
+
+            <div class="col user-function-button" style="margin-left: 5%;" onclick="modal.show('#sell-book')">
+
+                <div class="row">
+
+                    <p>Sell Book</p>
+
+                </div>
+
+                <div class="row">
+
+                    <i class="bi bi-book-fill"></i>
+
+                </div>
+
+            </div>
+
+
+            <div class="col user-function-button" style="margin-right: 5%;" onclick="modal.show('#post-text')">
+
+                <div class="row">
+
+                    <p>Post Text</p>
+
+                </div>
+
+                <div class="row">
+
+                    <i class="bi bi-chat-left-text"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!---post image-->
+    <div class="container fixed-bottom  modalView" id="post-image" style="display: none;">
+
+        <!-- #region title-->
+        <div class="row text-center sticky-top"
+            style="text-align: center; background-color: white;height: 15%; background-color: rgb(237, 237, 237);  ">
+
+            <!--close modal-->
+
+            <div class="col-1">
+
+                <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x"></i>
+
+            </div>
+            <!--end close modal div-->
+
+            <div class="col">
+
+                <h3 style="color: gray;">Post Image</h3>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <!--choose image-->
+        <label for="upload-photo" class="custom-file-upload">
+
+            <div class="row text-center" style="margin-left: auto;margin-right: auto">
+
+                <div class="col" style="margin-top: 4%;">
+
+                    <i class="bi bi-image-fill"> Choose Image</i>
+
+                </div>
+
+            </div>
+
+        </label>
+
+        <div class="row" class='user-image-loader-container' id="post-loaded-image-container">
+
+            <input style="display: none;" onchange="post.readImageURL(this)" name="uploadPhotoInput" id="upload-photo"
+                type="file" accept="image/*">
+
+        </div>
+
+        <br>
+
+        <!--choose community-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div class="col">
+
+                <div class="row">
+                    <div class="col">
+
+                        <button class="community-select-button"
+                            onclick="$('#community-select-modal').slideToggle()">Choose Community</button>
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <input style="text-align: left;" type="text" class="selected-community-value" readonly>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <br>
+        <!--post title-->
+
+        <div class="row user-input-fields"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-chat-left-text"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="image-post-title" placeholder="Enter Post Title" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
             
+
+        </div>
+
+        <br>
+
+
+        <div class="row user-input-fields"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-chat-left-text"></i>
+
+            </div>
+
+            <div class="col">
+
+                <textarea placeholder="Enter Post Text" name="" id="image-post-text" cols="30" rows="10"
+                    style="background-color: white; border-radius: 15px;"></textarea>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div class="row text-center button" onclick="post.postImage()">
+
+            <div class="col text-center">
+
+                <p>Post</p>
+
+            </div>
+
+            <br>
+
+        </div>
+
+        <br>
+
+
+
+    </div>
+
+    <!--post text-->
+
+    <div class="container fixed-bottom  modalView" id="post-text" style="display: none;">
+
+        <!-- #region title-->
+        <div class="row  text-center sticky-top"
+            style="text-align: center; background-color: white;height: 15%; background-color: rgb(237, 237, 237);">
+
+            <!--close modal-->
+
+            <div class="col-1">
+
+                <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x"></i>
+
+            </div>
+            <!--end close modal div-->
+
+            <div class="col">
+
+                <h3 style="color: gray;">Post Text</h3>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <!--choose community-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-people-fill"></i>
+            </div>
+
+            <div class="col">
+
+                <div class="row">
+                    <div class="col">
+
+                        <button class="community-select-button"
+                            onclick="$('#community-select-modal').slideToggle()">Choose Community</button>
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col">
+                        <input type="text" class="selected-community-value" readonly>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!--live search result-->
+
+        <br>
+        <!--post title-->
+
+        <div class="row user-input-fields text-center user-input-fields"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px; border: none;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-chat-left-text"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="post-title" placeholder="Enter Post Title" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <!--Post text-->
+
+        <div class="row user-input-fields"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i style="color: gray;" class="bi bi-chat-left-text"></i>
+
+            </div>
+
+            <div class="col">
+
+                <textarea placeholder="Enter Post Text" name="" id="post-text-area" cols="30" rows="10"
+                    style="background-color: white; border-radius: 15px;"></textarea>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <div onclick="httpRequest.postText(
+
+                $('#post-text-area').val(),
+
+                $('#post-title').val()
+
+            )" class="row text-center button">
+
+            <div class="col text-center">
+
+                <p>Post</p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+
+    </div>
+
+    <!--create community-->
+    <div class="container fixed-bottom  modalView" id="create-community" style="display: none;">
+
+        <!-- #region title-->
+        <div class="row text-center sticky-top"
+            style="text-align: center; background-color: white;height: 15%; background-color: rgb(237, 237, 237);">
+
+            <!--close modal-->
+
+            <div class="col-1">
+
+                <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x"></i>
+
+            </div>
+            <!--end close modal div-->
+
+            <div class="col">
+
+                <h3 style="color: gray;">Create Community</h3>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <!--community name-->
+        <div class="row">
+
+            <div class="col">
+
+                <p>Community Name</p>
+
+            </div>
+        </div>
+
+        <div class="row user-input-fields text-center user-input-fields"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-chat-left-text"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="create-community-name" placeholder="Enter Community Name" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        <br>
+
+        <!--community category-->
+        <div class="row">
+
+            <div class="col">
+
+                <p>Community Category</p>
+
+            </div>
+        </div>
+
+        <div class="row user-input-fields text-center user-input-fields"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-moon"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="create-community-category" placeholder="Enter Community Category" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        <br>
+
+
+
+        <div class="row text-center button">
+
+            <div class="col text-center">
+
+                <p>Create</p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+
+    </div>
+
+    <!--Sell book-->
+
+    <div class="container fixed-bottom  modalView" id="sell-book" style="display: none;">
+
+        <!-- #region title-->
+        <div class="row text-center sticky-top"
+            style="text-align: center; background-color: white;height: 15%; background-color: rgb(237, 237, 237);">
+
+            <!--close modal-->
+
+            <div class="col-1">
+
+                <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x"></i>
+
+            </div>
+            <!--end close modal div-->
+
+            <div class="col">
+
+                <h3 style="color: gray;">Sell Book</h3>
+
+            </div>
+
+        </div>
+
+        <br>
+
+        <!--choose image-->
+        <label for="upload-photo" class="custom-file-upload">
+
+            <div class="row text-center" style="margin-left: auto;margin-right: auto;border-radius: 5px; ">
+
+                <div class="col" style="margin-top: 4%;">
+
+                    <i style="color: black;" class="bi bi-image-fill"> Choose Image</i>
+
+                </div>
+
+            </div>
+
+        </label>
+
+        <div class="row" class='user-image-loader-container' id="post-loaded-image-container">
+
+            <input style="display: none;" onchange="post.readImageURL(this)" name="uploadPhotoInput" id="upload-photo"
+                type="file" accept="image/*">
+
+        </div>
+
+        <br>
+        <!--Book name-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-book-fill"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="book-name" placeholder="Enter Book Name" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+        <!--book price-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-wallet2"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="book-price" placeholder="Enter Book Price" type="number" pattern="[0-9]*" inputmode="numeric"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        
+        <br>
+
+        <!--Book ISBN-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-upc"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="book-isbn" placeholder="Enter Book ISBN" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+       
+        <br>
+
+        <!--User Phone Number-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-telephone-fill"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="phone-number" placeholder="Enter Book ISBN" type="tel" pattern="[0-9]*" inputmode="numeric"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        <br>
+
+        <!--User Email-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-at"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="user-email" placeholder="Enter Your Email" type="email"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        <br>
+
+        <!--Book Subject-->
+        <div class="row user-input-fields text-center"
+            style=" width: 100%;  margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-calculator-fill"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="book-subject" placeholder="Enter The Book Subject" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        <br>
+
+        <!--Book Condition-->
+        <div class="row">
+
+            <div class="col">
+
+                <p>Book Condition</p>
+
+            </div>
+        </div>
+
+        <div class="row user-input-fields text-center text-center"
+            style=" width: 100%; height: 50px;margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col">
+
+                <select style="background-color: white; border: none; margin-left: auto;margin-right: auto;color: gray;"
+                    name="book-condition" id="book-condition">
+
+                    <option value="new">New</option>
+
+                    <option value="used">Used</option>
+
+                </select>
+
+            </div>
+
+        </div>
+        <br>
+
+        <!--book editor-->
+        
+        <div class="row user-input-fields text-center"
+            style=" width: 100%;  margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-house-door-fill"></i>
+
+            </div>
+
+            <div class="col">
+
+                <input id="book-editor" placeholder="Enter The Book Editor" type="text"
+                    style="background-color: white; border-radius: 15px;">
+
+            </div>
+
+        </div>
+        <br>
+
+        <div class="row"
+            style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
+
+            <div class="col-1" style="margin-top: 2%;">
+
+                <i class="bi bi-bricks"></i>
+
+            </div>
+
+            <div class="col">
+
+                <textarea placeholder="Enter Book Details" name="" id="book-details" cols="30" rows="10"
+                    style="background-color: white; border-radius: 15px;"></textarea>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row text-center button">
+
+            <div class="col text-center">
+
+                <p>Post</p>
+
+            </div>
+
+        </div>
+
+        <br>
+
+
+
+    </div>
+
+
+    <!--bottom toolbar-->
+    <div class="container-fluid fixed-bottom  " id="bottom-bar">
+
+        <div class="row" style="text-align: center;">
+
+            <!--Home View-->
+            <div class="col active-bottom-icon" id="home-button" onclick="switchView(this, 'home-view')">
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <i class="bi bi-house mx-auto d-block"></i>
+
+                </div>
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <p>Home</p>
+
+                </div>
+
+            </div>
+
+            <!--Search View-->
+            <div class="col" onclick="switchView(this, 'search-view')">
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <i class="bi bi-search  mx-auto d-block"></i>
+
+                </div>
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <p>Search</p>
+
+                </div>
+
+
+
+            </div>
+
+            <!--Profile View-->
+            <div class="col" onclick="switchView(this, 'profile-view')">
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <i class="bi bi-person mx-auto d-block"></i>
+
+                </div>
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <p>Profile</p>
+
+                </div>
+
+
+
+            </div>
+
+            <!--Other View-->
+            <div class="col" onclick="switchView(this, 'other-view')">
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <i class="bi bi-justify mx-auto d-block"></i>
+
+                </div>
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <p>Other</p>
+
+                </div>
+
+
+
+            </div>
+
+            <!--Settings View-->
+            <div class="col" onclick="switchView(this, 'settings-view')">
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <i class="bi bi-gear-wide-connected mx-auto d-block"></i>
+
+                </div>
+
+                <div class="row d-flex justify-content-center bottom-icon">
+
+                    <p>Settings</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--full screen div(for post)-->
+    <div class="container-fluid fixed-bottom modalView full-screen-post" style="height: 90%; display: none;">
+
+        <div id="full-screen-post-content" class="mb-3">
+
+            <div class="row">
+
+                <div class="col ml-4">
+
+                    <p id="full-screen-post-username">@marvelasuenimhen</p>
+
+                </div>
+
+            </div>
 
             <div class="row text-center">
 
                 <div class="col">
-                    
-                    <p><i>Forgot password?</i> <strong onclick="console.log('registering')">Register</strong></p>
 
-                    <br>
+                    <p id="full-screen-post-date">2021-04-10</p>
+
                 </div>
 
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+
+                    <p id="full-screen-post-title">Test Title</p>
+
+                </div>
 
             </div>
-            
+
+            <div class="row">
+
+                <div class="col ml-3">
+
+                    <p id="full-screen-post-text">Test Text</p>
+
+                </div>
+
+            </div>
 
 
         </div>
 
-        <!--home-news-views-slider-->
-        <div id="slider" class="swipe view home-view">
-            <div class="swipe-wrap">
-               <!--home view-->
-                <div class="container-fluid  home-view home-selector-view post-feed-container" id="post-feed-container" >
+        <!--reply container-->
 
-                    <div class="post-container " id="post-container" ></div>
-                    
-                    <br>
+        <div class="row" style="width: 90%; margin-left: auto; margin-right: auto; ">
 
-                </div>
-             <!--news view-->
-                <div class="container-fluid   news-view home-selector-view post-news-container" id="post-news-container">
-
-                    <div class="news-container " id="news-container" ></div>
-                    
-                    <br>
-
-                </div>
+            <div class="container-fluid mb-4" id="comments-container">
             </div>
-        </div>
-
-       
-        <!--search view-->
-        <div class="container-fluid view search-view">
-
-            <div class="row" id="search-bar">
-
-                <div class="col-1" style="margin-top: 3%;">
-
-                    <i style="color: black;"  class="bi bi-search"></i>
-
-                </div>
-
-                <div class="col-7">
-
-                    <input type="text" name="" id="search-text">
-
-                </div>
-
-                <div class="col" >
-
-                    <p onclick="post.loadSearchResult($('#search-text').val())" class="search-button" style="display: none;">Search</p>
-
-                </div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="container-fluid" id="search-result-container">
-
-                </div>
-
-            </div>
-            
 
         </div>
 
-        <!--profile view-->
-        <div class="container-fluid view profile-view" id="profile-view">
-            <br>
+        <!--footer for posting comment-->
 
-            <!--profile info-->
+        <div class="row fixed-bottom mb-1" id="reply-container">
 
-            <div class="row">
+            <div class="col d-flex flex-row">
 
-                <div id="profile-info" class="col text-center">
+                <input id="reply-input-box" type="text" name="" id="">
 
-                    <div class="row">
-
-                        <div class="col">
-
-                            <p id="profile-username" >Marvel</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="row" style="width: 90%; margin-left: auto; margin-right: auto; ">
-
-                        <img  class="img-fluid " id="profile-view-profile-picture" alt="">
-        
-                    </div>
-
-                    <div class="row " id="profile-insights-row" >
-
-                        <div class="col text-center">
-
-                            <div class="row" >
-
-                                <div class="col" style="margin-top: 5%;">
-
-                                    <p>Likes</p>
-
-                                </div>
-                                
-                            </div>
-
-                            <div class="row text-center" >
-
-                                <div class="col" style="margin-bottom: 5%;">
-
-                                    <i id="number-of-likes" class="bi bi-heart"> 0</i>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col text-center">
-
-                            <div class="row">
-
-                                <div class="col" style="margin-top: 5%;">
-
-                                    <p>Posts</p>
-                                    
-                                </div>
-
-                            </div>
-
-                            <div class="row">
-
-                                <div class="col" style="margin-bottom: 5%;">
-
-                                    <i class="bi bi-card-text"> 0</i>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-            
-            <!--profile post container-->
-
-            <div class="container" id="profile-post-container" >
-
-            </div>
-
-            <br>
-            
-        </div>
-
-        <!--other-view selector-->
-        <div class="container-fluid view other-view" id="other-view">
-             <!--Selector-->
-             <div class="row text-center">
-
-                <div class="col" style="border-right: 1px solid rgb(201, 195, 195);">
-                    
-                    <i class="bi bi-people"></i>
-
-                </div>
-
-                <div class="col">
-
-                    <i class="bi bi-bag"></i>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!--other view slider-->
-        <div class=""  >  
-
-            <div id="other-view-slider" class="swipe ">
-            
-                <div class="swipe-wrap">
-    
-                    
-                    <!--community view-->
-                    <div class="container-fluid view other-view" style="margin-top: 5%;">
-    
-                        <div class="row" id="community-input-container">
-    
-                            <input type="text" id="other-community-input" name="" placeholder="Search Community" oninput="community.livesearch(this.value)"  style="border: 1px solid rgb(201, 195, 195); border-radius: 5px; width: 90%; margin-left: auto; margin-right: auto;">
-    
-                            <ul id="result-lists" ></ul>
-    
-                        </div>
-        
-                        <!--resulted community name-->
-                        <div class="row text-center">
-    
-                            <div class="col">
-    
-                                <p>Informatica</p>
-    
-                            </div>
-                        </div>
-    
-                        <!--community insihgts-->
-                        <div class="row " id="community-insights-row" >
-    
-                            <div class="col text-center">
-    
-                                <div class="row " >
-    
-                                    <i class="bi bi-people"> 0</i>
-                                </div>
-    
-                                <div class="row">
-    
-                                    <i class="bi bi-signpost"> 0</i>
-                                </div>
-    
-                            </div>
-                            
-                            
-                        </div>
-    
-                        <hr>
-                        
-                    </div>
-
-                    
-    
-                    
-                </div>
-            </div>
-        </div>
-
-        <!--settings view-->
-        <div class="container-fluid view settings-view">
-
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Settings</p>
-                </div>
-            </div>
-
-            <br>
-
-            <div class="row settings-row" onclick="user.logout()">
-
-                <div class="col-2 settings-icon">
-
-                    <i class="bi bi-lock"></i>
-                </div>
-
-                <div class="col" style="border-right: 1px solid lightgray;">
-
-                    <p>Logout</p>
-                </div>
-            </div>
-
-            <br>
-
-            
-            <div class="row settings-row">
-
-                <div class="col-2 settings-icon">
-
-                    <i class="bi bi-trash"></i>
-                </div>
-
-                <div class="col">
-
-                    <p>Clear Cache</p>
-                </div>
-            </div>
-            
-            <br>
-
-            <div class="row settings-row">
-
-                <div class="col-2 settings-icon">
-
-                    <i class="bi bi-bell"></i>
-                </div>
-
-                <div class="col">
-
-                    <p>Clear Cache</p>
-                </div>
-            </div>
-
-            
-
-        </div>
-
-        <!--user functions-->
-        <div class="container fixed-bottom modalView" id="user-functions">
-            <!--close modal-->
-
-            <div class="row text-center" style="margin-top: 30%; margin-bottom: 20%;" >
-
-                <div class="col">
-
-                    <i  onclick="modal.hide('#user-functions')" style="color: gray; font-size: 40px;" class="bi bi-x-circle-fill"></i>
-
-                </div>
-            </div>
-
-            <!--end close modal div-->
-
-            <div class="row" style="height: 20%;" >
-
-                <div class="col user-function-button" style="margin-left: 5%;"onclick="modal.show('#post-image')" >
-
-                    <div class="row">
-
-                        <p>Post Image</p>
-
-                    </div>
-
-                    <div class="row">
-
-                        <i class="bi bi-image-fill"></i>
-
-                    </div>
-
-                </div>
-
-                
-                <div class="col user-function-button" style="margin-right: 5%;" onclick="modal.show('#create-community')" >
-
-                    <div class="row">
-
-                        <p>Create Community</p>
-
-                    </div>
-
-                    <div class="row">
-
-                        <i class="bi bi-people-fill"></i>
-                        
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="row" style="height: 20%; margin-top: 5%;"  >
-
-                <div class="col user-function-button" style="margin-left: 5%;" onclick="modal.show('#sell-book')">
-
-                    <div class="row">
-
-                        <p>Sell Book</p>
-
-                    </div>
-
-                    <div class="row">
-
-                        <i class="bi bi-book-fill"></i>
-
-                    </div>
-
-                </div>
-
-                
-                <div class="col user-function-button" style="margin-right: 5%;" onclick="modal.show('#post-text')">
-
-                    <div class="row">
-
-                        <p>Post Text</p>
-
-                    </div>
-
-                    <div class="row">
-
-                        <i class="bi bi-chat-left-text"></i>
-                        
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-
-        <!---post image-->
-        <div class="container fixed-bottom  modalView" id="post-image" style="display: none;">
-
-            <!-- #region title-->
-            <div class="row text-center sticky-top" style="text-align: center; background-color: white;height: 15%; border-bottom: 1px solid rgb(201, 195, 195); ">
-
-                <!--close modal-->
-
-                <div class="col-1">
-
-                    <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x-circle-fill"></i>
-
-                </div>
-                <!--end close modal div-->
-
-                <div class="col">
-
-                    <h3 style="color: gray;">Post Image</h3>
-
-                </div>
-
-            </div>
-
-            <br>
-            
-            <!--choose image-->
-            <label for="upload-photo" class="custom-file-upload">
-                
-                <div class="row text-center" style="margin-left: auto;margin-right: auto; background-color: white;">
-                    
-                    <div class="col" style="margin-top: 4%;">
-
-                        <i class="bi bi-image-fill"> Choose Image</i>
-
-                    </div>
-
-                </div>
-
-            </label>
-
-            <div class="row" class='user-image-loader-container' id="post-loaded-image-container">
-    
-                <input style="display: none;" onchange="post.readImageURL(this)" name="uploadPhotoInput"  id="upload-photo" type="file" accept="image/*">
-
-            </div>
-
-            <hr>
-
-            <!--choose community-->
-            <div class="row user-input-fields"  style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i  class="bi bi-people-fill"></i>
-                </div>
-
-               <div class="col " id="community-input-container">
-
-                    <input class="post-community-input" id="post-image-community-input" oninput="community.livesearch(this.value)" placeholder="Choose Community" style="background-color: white; border-radius: 15px;"type="text">
-
-                    <div class="row ">
-
-                        <div class="col-9 " style="margin-left: auto;margin-right: auto;" >
-        
-                            <!--<ul id="result-list"></ul>-->
-        
-                        </div>
-        
-                    </div>
-
-               </div>
-
-            </div>
-            <!--live search result-->
-
-            <!--post title-->
-            <hr>
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Post Title</p>
-
-                </div>
-            </div>
-
-            <!--write title-->
-
-            <div class="row user-input-fields" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-chat-left-text"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="image-post-title" placeholder="Enter Post Title" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-
-            <hr>
-            
-
-            <div class="row user-input-fields" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-chat-left-text"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <textarea placeholder="Enter Post Text" name="" id="image-post-text" cols="30" rows="10" style="background-color: white; border-radius: 15px;" ></textarea>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            <div class="row text-center button">
-                
-                <div class="col text-center">
-                    
-                    <p>Post</p>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            
-
-        </div>
-
-        <!--post text-->
-
-        <div class="container fixed-bottom  modalView" id="post-text" style="display: block;">
-
-            <!-- #region title-->
-            <div class="row  text-center sticky-top" style="text-align: center; background-color: white;height: 15%; border-bottom: 1px solid rgb(201, 195, 195)">
-
-                <!--close modal-->
-
-                <div class="col-1">
-
-                    <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x-circle-fill"></i>
-
-                </div>
-                <!--end close modal div-->
-
-                <div class="col">
-
-                    <h3 style="color: gray;">Post Text</h3>
-
-                </div>
-
-            </div>
-
-            <br>
-        
-            <!--choose community-->
-            <div class="row user-input-fields"  style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i  class="bi bi-people-fill"></i>
-                </div>
-
-               <div class="col " id="community-input-container">
-
-                    <input class="post-community-input" id="post-text-community-input" oninput="community.livesearch(this.value)" placeholder="Choose Community" style="background-color: white; border-radius: 15px; color: gray !important"type="text">
-
-                    <div class="row ">
-
-                        <div class="col-9 " style="margin-left: auto;margin-right: auto;" >
-        
-                            <select id="result-list"></select>
-        
-                        </div>
-        
-                    </div>
-
-               </div>
-
-            </div>
-            <!--live search result-->
-
-            <!--post title-->
-            <hr>
-            <div class="row ">
-
-                <div class="col">
-
-                    <p>Post Title</p>
-
-                </div>
-            </div>
-
-            <!--write title-->
-
-            <div class="row modal-field user-input-fields" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-chat-left-text"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="image-post-title" placeholder="Enter Post Title" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-
-            <hr>
-
-            <div class="row user-input-fields" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i style="color: gray;" class="bi bi-chat-left-text"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <textarea placeholder="Enter Post Text" name="" id="image-post-text" cols="30" rows="10" style="background-color: white; border-radius: 15px;" ></textarea>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            <div class="row text-center button">
-                
-                <div class="col text-center">
-                    
-                    <p>Post</p>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            
-
-        </div>
-
-        <!--create community-->
-         <div class="container fixed-bottom  modalView" id="create-community" style="display: none;">
-
-            <!-- #region title-->
-            <div class="row text-center sticky-top" style="text-align: center; background-color: white;height: 15%; border-bottom: 1px solid rgb(72, 70, 70);">
-
-                <!--close modal-->
-
-                <div class="col-1">
-
-                    <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x-circle-fill"></i>
-
-                </div>
-                <!--end close modal div-->
-
-                <div class="col">
-
-                    <h3 style="color: gray;">Create Community</h3>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            <!--community name-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Community Name</p>
-
-                </div>
-            </div>
-
-            <div class="row modal-field user-input-fields" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-chat-left-text"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="create-community-name" placeholder="Enter Community Name" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-            <!--community category-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Community Category</p>
-
-                </div>
-            </div>
-
-            <div class="row modal-field user-input-fields" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-moon"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="create-community-category" placeholder="Enter Community Category" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <br>
-
-            
-
-            <div class="row text-center button">
-                
-                <div class="col text-center">
-                    
-                    <p>Create</p>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            
-
-        </div>
-
-        <!--Sell book-->
-
-        <div class="container fixed-bottom  modalView" id="sell-book" style="display: none;">
-
-            <!-- #region title-->
-            <div class="row text-center sticky-top" style="text-align: center; background-color: white;height: 15%; border-bottom: 1px solid rgb(201, 195, 195)">
-
-                <!--close modal-->
-
-                <div class="col-1">
-
-                    <i onclick="modal.hide()" style="color: gray; font-size: 30px;" class="bi bi-x-circle-fill"></i>
-
-                </div>
-                <!--end close modal div-->
-
-                <div class="col">
-
-                    <h3 style="color: gray;">Sell Book</h3>
-
-                </div>
-
-            </div>
-
-            <br>
-            
-            <!--choose image-->
-            <label for="upload-photo" class="custom-file-upload">
-                
-                <div class="row text-center" style="margin-left: auto;margin-right: auto; ">
-                    
-                    <div class="col" style="margin-top: 4%;">
-
-                        <i style="color: black;" class="bi bi-image-fill"> Choose Image</i>
-
-                    </div>
-
-                </div>
-
-            </label>
-
-            <div class="row" class='user-image-loader-container' id="post-loaded-image-container">
-    
-                <input style="display: none;" onchange="post.readImageURL(this)" name="uploadPhotoInput"  id="upload-photo" type="file" accept="image/*">
-
-            </div>
-
-
-            <!--Book name-->
-            <hr>
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Book Name</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-book-fill"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="book-name" placeholder="Enter Book Name" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-
-            <hr>
-
-
-            <!--book price-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Book Price</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-wallet2"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="book-price" placeholder="Enter Book Price" type="number" pattern="[0-9]*" inputmode="numeric" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-            <!--Book ISBN-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Book ISBN</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-upc"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="book-isbn" placeholder="Enter Book ISBN" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-             <!--User Phone Number-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Phone Number</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-telephone-fill"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="phone-number" placeholder="Enter Book ISBN" type="tel" pattern="[0-9]*" inputmode="numeric" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-            <!--User Email-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Email</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-at"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="user-email" placeholder="Enter Your Email" type="email" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-            <!--Book Subject-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Book Subject</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%;  margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-calculator-fill"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="book-subject" placeholder="Enter The Book Subject" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-            <!--Book Condition-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Book Condition</p>
-
-                </div>
-            </div>
-
-            <div class="row modal-field text-center" style=" width: 100%; height: 50px;margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;"> 
-                
-                <div class="col">
-
-                    <select style="background-color: white; border: none; margin-left: auto;margin-right: auto;color: gray;" name="book-condition" id="book-condition">
-
-                        <option value="new">New</option>
-                        
-                        <option value="used">Used</option>
-
-                    </select>
-
-                </div>
-
-            </div>
-            <hr>
-
-            <!--book editor-->
-            <div class="row">
-
-                <div class="col">
-
-                    <p>Book Editor</p>
-
-                </div>
-            </div>
-            <div class="row modal-field" style=" width: 100%;  margin-left: auto; margin-right: auto; background-color: white; border-radius: 5px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-house-door-fill"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <input  id="book-editor" placeholder="Enter The Book Editor" type="text" style="background-color: white; border-radius: 15px;">
-
-                </div>
-
-            </div>
-            <hr>
-
-            <div class="row" style=" width: 100%; margin-left: auto; margin-right: auto; background-color: white; border-radius: 15px;">
-
-                <div class="col-1" style="margin-top: 2%;">
-
-                    <i class="bi bi-bricks"></i>
-
-                </div>   
-                
-                <div class="col">
-
-                    <textarea placeholder="Enter Book Details" name="" id="book-details" cols="30" rows="10" style="background-color: white; border-radius: 15px;" ></textarea>
-
-                </div>
-
-            </div>
-
-            <hr>
-
-            <div class="row text-center button">
-                
-                <div class="col text-center">
-                    
-                    <p>Post</p>
-
-                </div>
-
-            </div>
-
-            <br>
-
-            
-
-        </div>
-        
-
-        <!--bottom toolbar-->
-        <div class="container-fluid fixed-bottom  " id="bottom-bar" >
-            
-            <div class="row" style="text-align: center;" >
-
-                <!--Home View-->
-                <div class="col active-bottom-icon" id="home-button" onclick="switchView(this, 'home-view')">
-
-                    <div class="row d-flex justify-content-center bottom-icon" >
-
-                        <i  class="bi bi-house mx-auto d-block"></i>
-
-                    </div>
-                    
-                    <div class="row d-flex justify-content-center bottom-icon" >
-
-                        <p>Home</p>
-
-                    </div>
-
-                </div>
-
-                <!--Search View-->
-                <div class="col" onclick="switchView(this, 'search-view')">
-                    
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <i class="bi bi-search  mx-auto d-block"></i>
-
-                    </div>
-
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <p>Search</p>
-
-                    </div>
-
-                    
-
-                </div>
-
-                <!--Profile View-->
-                <div class="col" onclick="switchView(this, 'profile-view')">
-                    
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <i class="bi bi-person mx-auto d-block"></i>
-
-                    </div>
-
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <p>Profile</p>
-
-                    </div>
-
-                    
-
-                </div>
-
-                <!--Other View-->
-                <div class="col" onclick="switchView(this, 'other-view')">
-                    
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <i class="bi bi-justify mx-auto d-block"></i>
-
-                    </div>
-
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <p>Other</p>
-
-                    </div>
-
-                    
-
-                </div>
-
-                <!--Settings View-->
-                <div class="col" onclick="switchView(this, 'settings-view')">
-                    
-                    <div class="row d-flex justify-content-center bottom-icon">
-
-                        <i  class="bi bi-gear-wide-connected mx-auto d-block"></i>
-
-                    </div>
-
-                    <div class="row d-flex justify-content-center bottom-icon">
-                        
-                        <p >Settings</p>
-
-                    </div>
-
-                </div>
-
-            </div>
-        
-        </div>
-
-        <!--full screen div(for post)-->
-        <div class="container-fluid fixed-bottom modalView full-screen-post"  style="height: 90%; display: none;">
-
-            <div id="full-screen-post-content" class="mb-3"> 
-
-                <div class="row" >
-
-                    <div class="col ml-4" >
-    
-                        <p  id="full-screen-post-username">@marvelasuenimhen</p>
-    
-                    </div>
-    
-                </div>
-
-                <div class="row text-center" >
-
-                    <div class="col" >
-    
-                        <p id="full-screen-post-date">2021-04-10</p>
-    
-                    </div>
-    
-                </div>
-
-                <div class="row" >
-
-                    <div class="col" >
-    
-                        <p id="full-screen-post-title">Test Title</p>
-    
-                    </div>
-    
-                </div>
-
-                <div class="row" >
-
-                    <div class="col ml-3" >
-    
-                        <p id="full-screen-post-text">Test Text</p>
-    
-                    </div>
-    
-                </div>
-
-                
-            </div>
-
-            <!--reply container-->
-            
-            <div class="row" style="width: 90%; margin-left: auto; margin-right: auto; ">
-
-                <div class="container-fluid mb-4" id="comments-container">                    
-                </div>
-
-            </div>
-
-            <!--footer for posting comment-->
-
-            <div class="row fixed-bottom mb-1" id="reply-container">
-
-                <div class="col d-flex flex-row">
-
-                    <input id="reply-input-box" type="text" name="" id="">
-
-                    <button onclick="httpRequest.postComment(
+                <button onclick="httpRequest.postComment(
                         
                         $('#reply-input-box').val(),
                     
-                        $('.full-screen-post').attr('id') )" >Post</button>
+                        $('.full-screen-post').attr('id') )">Post</button>
 
-                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--Community selector modal -->
+    <div class="container-fluid fixed-bottom modalView community-select "
+        style=" border: 1px solid black; display: none; z-index: 100;" id="community-select-modal">
+
+        <div class="row  text-center">
+
+            <div class="col">
+
+                <i style="font-size: 32px; text-align: center;" onclick="$('.community-select').slideToggle()"
+                    class="bi bi-x"></i>
+
             </div>
 
         </div>
-        
+
+        <br>
 
 
-        <!-- SCRIPT SOURCE FILES -->
-        <!--CDN-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
-        <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
-        <!--END CDN-->
+        <div class="row text-center">
 
-        <script src="js/swipe.min.js"></script>
-        <script src="cordova.js"></script>
-        <script src="js/Modal.js"></script>
-        <script src="js/index.umd.min.js"></script>
-        <script src="js/Server.js"></script>
-        <script src="js/HTTPRequest.js"></script>
-        <script src="js/Community.js"></script>
-        <script src="js/User.js"></script>
-        <script src="js/CardView.js"></script>
-        <script src="js/ViewHandler.js"></script>
-        <script src="js/Post.js"></script>
-        <script src="js/News.js"></script>
-        <script src="js/index.js"></script>
-        <script src="js/login.js"></script>
-        <!-- sesso forte con i marocchini madonna troia-->
-    </body>
+            <div class="col">
+
+                <input autocomplete="off" class="post-community-name" id="post-community-name"
+                    oninput="community.livesearch(this.value)" placeholder="Choose Community"
+                    style="background-color: white; border-radius: 15px; color: black !important; text-align: center;"
+                    type="text">
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row text-center">
+
+            <div class="col">
+
+                <ul class="list-group list-group-flush" id="result-lists"></ul>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- SCRIPT SOURCE FILES -->
+    <!--CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <!--END CDN-->
+
+    <script src="js/swipe.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="js/Modal.js"></script>
+    <script src="js/index.umd.min.js"></script>
+    <script src="js/Server.js"></script>
+    <script src="js/HTTPRequest.js"></script>
+    <script src="js/Community.js"></script>
+    <script src="js/User.js"></script>
+    <script src="js/CardView.js"></script>
+    <script src="js/ViewHandler.js"></script>
+    <script src="js/Post.js"></script>
+    <script src="js/News.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
+    <!-- sesso forte con i marocchini madonna troia-->
+</body>
+
 </html>

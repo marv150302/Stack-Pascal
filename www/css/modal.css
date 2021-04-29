@@ -6,7 +6,7 @@
 
     background-color: white;
 
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
 
     display: none;
 
@@ -32,6 +32,10 @@
 
 .user-input-fields{
 
-    border: 1px solid rgb(201, 195, 195) !important;
+    border-radius: 0px !important;
+
+    border: none !important;
+
+    border-bottom: 1px solid rgb(201, 195, 195) !important;
 }
 

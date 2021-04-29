@@ -11,7 +11,7 @@ User.prototype.loadProfileData = function () {
     
     document.getElementById('profile-username').innerHTML = '@' + this.data.name;
 
-    document.getElementById('profile-view-profile-picture').src = "http://" + server.IP + "/php/IBus/img/1/pfp/1.png";
+    document.getElementById('profile-view-profile-picture').src = "http://" + server.IP + "/php/"+ server.folder_name+"/img/1/pfp/1.png";
 
     this.loadProfilePost()
 }

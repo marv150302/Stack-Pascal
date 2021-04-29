@@ -68,11 +68,19 @@ function main() {
 
     httpRequest.getCommunities(community);
 
+    community.selected_community = community.data[0].name;//we give the default community in (first one in the database)
+
+    $('.selected-community-value').val(community.selected_community)
+
+    community.loadPost();
+    
     user.loadProfileData();
 
     init()
 
 }
+
+
 
 var other_view_swiper = document.getElementById('other-view-slider')
 
@@ -181,7 +189,7 @@ function getMobileOperatingSystem() {
 
 document.addEventListener('click', function(event) {
 
-    var modalView = document.getElementsByClassName('modalView')
+    var modalView = document.getElementsByClassName('modalView:not(.community-select)')
 
     for (let index = 0; index < modalView.length; index++) {
 
@@ -206,7 +214,7 @@ document.addEventListener('click', function(event) {
 
 
 
-document.addEventListener('click', function(event) {
+/* document.addEventListener('click', function(event) {
     
 
     var communityContainer = document.getElementById('community-input-container')
@@ -237,13 +245,13 @@ document.addEventListener('click', function(event) {
         //$('#result-list').empty()
     }
     
-});
+}); */
 
 //we show the search button only if the user has typed something
 $("input").keyup(function () {
 
     //result-list is the container(ul) used for the live search of the communities
-    $('#result-list').slideDown()//when the user is typing we slide down the result div
+    $('#result-lists').slideDown()//when the user is typing we slide down the result div
 
     if(!$(this).val()){
 
@@ -254,17 +262,6 @@ $("input").keyup(function () {
         $('.search-button').fadeIn();
     }
  });
-
- //if the user clicks on one of the results then we load it in the input field
-$('#result-list').on('click', 'li',  function() {
-
-    $('.post-community-input').val($(this).html())//we write the result in our input text
-
-    $('#other-community-input').val($(this).html())//we write the result in our input text
-
-    $('#result-list').slideUp()//we slide up the animation
-
-});
 
 
 
@@ -360,6 +357,8 @@ $("#reply-input-box").keyup(function () {
     }
  });
 //
+
+/*
 //loading communities
 console.log(community.data);
 let resultList = document.querySelector("#result-list");
@@ -372,4 +371,4 @@ for (let index = 0; index < community.data.length; index++) {
     resultList.innerHTML += "<option class='list-group-item'>"+ element.name + "</option>";
     
     console.log(element.name);
-}
+}*/
