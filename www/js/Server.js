@@ -1,8 +1,8 @@
 var Server = function () {
     
-    this.IP = "192.168.1.186";
+    this.IP = "localhost";
 
-    this.folder_name = 'Stack-Pascal'//the folder that contains all the rest apis
+    this.folder_name = 'Stack-Pascal'//the folder that contains all the rest APIs
 }
 
 var server = new Server()

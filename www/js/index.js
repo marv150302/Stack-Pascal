@@ -11,38 +11,25 @@ if (window.localStorage.getItem("loggedin") == 'true') {
     main()
 }
 
-//window.mySwipe = $('#slider').Swipe().data('Swipe');
 
-var element = document.getElementById('slider')
+var community_swiper = new Swiper('.community-swiper-container', {
+    
+    observer: true,
+    observeParents: true,
+    autoHeight : true
 
-window.mySwipe = new Swipe(element, {
-    startSlide: 0,
-    speed: 400,
-    auto: 0,
-    draggable: false,
-    continuous: false,
-    autoRestart: false,
-    disableScroll: false, // prevent touch events from scrolling the page
-    stopPropagation: false, 
-    callback: function(index, elem, dir) {},
-    transitionEnd: function(index, elem) {
+});
 
-        if (index == 1) {
-            
-            $('#news-icon').addClass('active-home-view-selector-icon')
+var home_view_swiper = new Swiper('.home-swiper-container', {
+    
+    observer: true,
+    observeParents: true,
+    autoHeight : true,
+    setWrapperSize : true,
+    calculateHeight:true,
+    
 
-            $('#home-icon').removeClass('active-home-view-selector-icon')
-        }else{
-
-            $('#home-icon').addClass('active-home-view-selector-icon')
-
-            $('#news-icon').removeClass('active-home-view-selector-icon')
-        }
-    }
-  });
-
-
-
+});
 
 
 function main() {
@@ -57,6 +44,11 @@ function main() {
     $('.view').hide()//we hide any previous view
 
     $('.home-view').show()
+    
+
+    //$('.other-view').show()
+
+    //$('.other-view').hide()
 
     httpRequest.getUserLikedPost(user.id, user)
 
@@ -82,24 +74,7 @@ function main() {
 
 
 
-var other_view_swiper = document.getElementById('other-view-slider')
 
-
-window.mySwipe = new Swipe(other_view_swiper, {
-    startSlide: 0,
-    speed: 400,
-    auto: 0,
-    draggable: false,
-    continuous: false,
-    autoRestart: false,
-    disableScroll: false, // prevent touch events from scrolling the page
-    stopPropagation: false, 
-    callback: function(index, elem, dir) {},
-    transitionEnd: function(index, elem) {
-
-
-    }
-  });
 
 
 
@@ -301,7 +276,7 @@ function init() {
     //based on which element is the highest between the plus icon and the app title
     //for example in our case the highest is the plus button div container
     //so the topBar height is going to be based on the plus button div container height
-    let appTitleHeight = $('#app-title').height() + "px"
+    /* let appTitleHeight = $('#app-title').height() + "px"
 
     let plusButtonForUserFunctions = $('#plus-button-for-user-functions').height()
 
@@ -331,7 +306,7 @@ function init() {
     //the following settings are for the search view
 
     $('#search-result-container').css('margin-top', $('#search-bar').height() + 60)
-
+ */
     //the following is for the profile view
 
     let profile_pfp_height = $('#profile-view-profile-picture').height()
@@ -372,3 +347,4 @@ for (let index = 0; index < community.data.length; index++) {
     
     console.log(element.name);
 }*/
+

@@ -81,3 +81,48 @@ function switchHomeViewSelector(activeIcon, viewToDisplay, direction) {
     
     
 }
+
+community_swiper.on('slideChange', function () {
+
+    switchCurrentIconOtherView()
+
+});
+
+function switchCurrentIconOtherView() {
+    
+    switch (community_swiper.activeIndex) {
+        case 0://clicked on the community icon
+
+            //we fill the community icon with black color by changin the class name
+                
+            $('#community-icon').removeClass('bi bi-people');
+
+            $('#community-icon').addClass('bi bi-people-fill');
+
+            //we remove the filled icon from the marketplace icon
+            $('#marketplace-icon').addClass('bi bi-bag');
+
+            $('#marketplace-icon').removeClass('bi bi-bag-fill');
+
+            break;
+
+        case 1://clicked on the marketplace icon
+
+            //we  fill the marketplace icon 
+            $('#marketplace-icon').removeClass('bi bi-bag');
+
+            $('#marketplace-icon').addClass('bi bi-bag-fill');
+
+            //we remove the fill icon to the community icon
+            
+            $('#community-icon').addClass('bi bi-people');
+
+            $('#community-icon').removeClass('bi bi-people-fill');
+        
+
+            break;
+    
+        default:
+            break;
+    }
+}
