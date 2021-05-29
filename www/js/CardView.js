@@ -9,12 +9,19 @@ Card.prototype.postCard = function (post_username, post_date, post_title, post_t
 
     card.className = 'card';
 
+    card.id = postID
+
+    card.setAttribute('data-long-press-delay', '500')
 
     let pfp = document.createElement("img")
 
     pfp.src = pfp_src
 
-    pfp.className = "card-pfp img-fluid"
+    pfp.className = ""
+
+    pfp.setAttribute('onerror', "this.src='img/icon/default-pfp.png'")
+
+    pfp.className = "card-pfp img-fluid rounded-circle"
 
 
 
@@ -92,7 +99,7 @@ Card.prototype.postCard = function (post_username, post_date, post_title, post_t
     
     likeButton.setAttribute("onclick",
 
-     "httpRequest.likePost(this.id, user.id, this.style.color == 'rgb(247, 194, 68)' ? 'remove' : 'add'); card.updateLikeLocally(this.id)")
+     "httpRequest.likePost(this.id, user.id, this.style.color == 'rgb(247, 194, 68)' ? 'remove' : 'add'); card.updateLikeLocally(this)")
 
      
     likeButton.innerHTML += " " + likes
@@ -226,23 +233,23 @@ Card.prototype.newsCard = function (news_date, news_title, news_text, image_src,
 }
 //we use this function to give the user the effect that the like has been updated, instead we are just changing the 
 //button color and its number of likes
-Card.prototype.updateLikeLocally = function (postID) {   
+Card.prototype.updateLikeLocally = function (object) {  
     
-    if (document.getElementById(postID).style.color == 'rgb(247, 194, 68)' ) {
+    if (object.style.color == 'rgb(247, 194, 68)' ) {
         
-        document.getElementById(postID).innerHTML = " " + (parseInt(document.getElementById(postID).innerHTML) - 1)
+        object.innerHTML = " " + (parseInt(object.innerHTML) - 1)
 
-        document.getElementById(postID).style.color = "black"
+        object.style.color = "black"
 
-        document.getElementById(postID).className = "bi bi-hand-thumbs-up"
+        object.className = "bi bi-hand-thumbs-up"
 
     }else{
 
-        document.getElementById(postID).innerHTML = " " + (parseInt(document.getElementById(postID).innerHTML) + 1)
+        object.innerHTML = " " + (parseInt(object.innerHTML) + 1)
 
-        document.getElementById(postID).style.color = "rgb(247, 194, 68)"
+        object.style.color = "rgb(247, 194, 68)"
 
-        document.getElementById(postID).className = "bi bi-hand-thumbs-up-fill"
+        object.className = "bi bi-hand-thumbs-up-fill"
 
     }
 
@@ -255,10 +262,10 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
 
     card.className = 'card';
 
-    card.style.height = "auto"
+    card.style.height = "20%"
 
 
-    let username = document.createElement('h5');
+    let username = document.createElement('p');
 
     username.innerHTML = "@" + postUsername;
 
@@ -275,7 +282,7 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
 
     username.style.marginLeft = "5%"
 
-    username.style.color = "rgb(247, 194, 68)"
+    username.style.color = "lightgray"//rgb(247, 194, 68)
 
     username.style.fontStyle = "oblique"
 
@@ -316,13 +323,13 @@ Card.prototype.searchResultCard = function (postTitle, postDate, postUsername,po
 
     title.style.textAlign = "center"
 
-    title.style.textTransform = "uppercase"
+    //title.style.textTransform = "uppercase"
 
     let openButton = document.createElement("button")
 
     
 
-    openButton.innerHTML = "<i  style='color:gray; font-size: 30px' class='bi bi-box-arrow-in-right'></i>"
+    openButton.innerHTML = "<i  style='color:gray; font-size: 30px' class='bi bi-arrow-right-short'></i>"
 
     openButton.className = "open-button-from-post-result"
 

@@ -6,7 +6,9 @@
 
     color: black;
 
-    border: 1px solid rgb(240, 234, 234);
+    /* border: 1px solid rgb(240, 234, 234); */
+
+    box-shadow: 0px 0px 10px 0px rgb(225, 225, 225);
 
     /* left: 50%; */
 
@@ -33,17 +35,27 @@
 
     width: 20%;
 
-    height: 20%;
+   /*  height: 20%; */
+
+    /* border-radius: 5px; */
 
     border-radius: 5px;
 
     margin-left: auto;
 
-    margin-top: 5%;
+    margin-right: 5%;
+
+    /* margin-top: 5%; */
 
     border: none;
 
-    background-color: white;
+    /* box-shadow: 0px 0px 10px 0px rgb(225, 225, 225); */
+
+    /* border: 1px solid red;
+
+    transition: 0.3s; */
+
+    /* background-color: white; */
 
     /*-webkit-box-shadow: 3px 3px 6px black, -3px -3px 6px black;
             box-shadow: 3px 3px 6px black, -3px -3px 6px black;*/
@@ -56,4 +68,14 @@
 #search-result-container{
 
     margin-bottom: 25%;
+}
+
+.card-result-rows div.card{
+
+    border: none !important;
+
+    border-radius: 0px;
+
+    border-bottom: 3px solid rgb(240, 234, 234) !important;
+
 }

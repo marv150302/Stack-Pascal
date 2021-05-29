@@ -11,19 +11,45 @@
     border-radius: 5px;
 
     height: auto;
+
+    
     
 }
+.community-select-button{
 
+    background-color:  white;
+    
+    color: gray; border-radius: 5px;
+    
+    border: 1px solid rgb(237, 237, 237);
+    
+    margin-top: 5%;
+
+    transition: 0.3s;
+
+    outline: none;
+}
+.community-select-button:active{
+
+    transform: scale(0.95);
+
+    border: 1px solid gray;
+
+    outline: none;
+}
 #community-insights-row i, #community-insights-row p{
     
     font-style: normal;
 
     /* color: rgb(247, 194, 68); */
 
-    color: rgb(93, 147, 165);
+    color: rgb(97, 97, 97);
+
 }
 
 #post-container-other-view{
 
     margin-bottom: 15%;
 }
+
+

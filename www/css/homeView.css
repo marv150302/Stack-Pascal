@@ -71,6 +71,8 @@
 #post-feed-container, #post-news-container{
 
     display: inline-block;
+
+    margin-bottom: 5%;
 }
 
 

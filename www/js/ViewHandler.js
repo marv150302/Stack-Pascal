@@ -1,128 +1,46 @@
-//we are going to use this variable to register the last
-//home  view selector(news or post) the user selcted
-//the default value is the home 
-var lastViewSelectedByUser = "post-feed-container"
-
-
 //we use this function to change the views
 function switchView(activeIcon, viewToDisplay) {
-
-    
 
     $('.active-bottom-icon').removeClass('active-bottom-icon')//we remove any previous selection
 
     $(activeIcon).addClass('active-bottom-icon')
 
-    //$(activeIcon).addClass('-fill')
-
     $('.view').hide()//we hide any previous view
 
     $('.' + viewToDisplay).show()//we show the view we want 
 
-    //now let's check if the user clicked the home view
-    //if he clicked on the home view 
-    //we need to handle wether to show the post view container
-    //or show the new container
-    
-   
-    
 }
 
-function switchHomeViewSelector(activeIcon, viewToDisplay, direction) {
 
-    //we change the active icon color
-    //$('.active-home-view-selector-icon').removeClass('active-home-view-selector-icon')//we remove any previous selection
+other_view_swiper.on('slideChange', function () {
 
-    //$(activeIcon).addClass('active-home-view-selector-icon')
+    $('#community-icon').toggleClass('bi bi-people bi bi-people-fill')
 
-    //console.log(viewToDisplay);
-
-    if (viewToDisplay == 'post-news-container') {
-        
-        mySwipe.next() 
-
-    }else{
-
-        mySwipe.prev() 
-    }
-
-    /*
-    
-    var show = $('.' + viewToDisplay).show('slide', {
-        
-        direction: direction, 
-        
-        queue: false
-    
-    });
-    
-    var viewToHide = '.home-selector-view:not(.' + viewToDisplay + ')'
-    
-    var hide = $(viewToHide).hide('slide', {
-        
-        direction: direction == "right" ? "left" : "right",//we slide
-    
-        queue: false
-            
-    })//we show the view we want 
-    
-    */
-
-    
-
-    /*lastViewSelectedByUser = viewToDisplay;
-
-    var viewToHide = '.home-selector-view:not(.' + viewToDisplay + ')'
-
-    var hide = $(viewToHide).hide("slide", {direction: direction == "right" ? "left" : "right"}, 400);
-
-    var show = $('.' + viewToDisplay).show("slide", {direction: direction}, 400);*/
-
-    
-    
-}
-
-community_swiper.on('slideChange', function () {
-
-    switchCurrentIconOtherView()
+    $('#marketplace-icon').toggleClass('bi bi-bag bi bi-bag-fill')
 
 });
 
-function switchCurrentIconOtherView() {
-    
-    switch (community_swiper.activeIndex) {
-        case 0://clicked on the community icon
+home_view_swiper.on('slideChange', function () {
 
-            //we fill the community icon with black color by changin the class name
-                
-            $('#community-icon').removeClass('bi bi-people');
+    $('#home-icon').toggleClass('active-home-view-selector-icon ')
 
-            $('#community-icon').addClass('bi bi-people-fill');
+    $('#news-icon').toggleClass('active-home-view-selector-icon ')
 
-            //we remove the filled icon from the marketplace icon
-            $('#marketplace-icon').addClass('bi bi-bag');
+});
 
-            $('#marketplace-icon').removeClass('bi bi-bag-fill');
 
-            break;
 
-        case 1://clicked on the marketplace icon
+/* let str = 'bi bi-people';
 
-            //we  fill the marketplace icon 
-            $('#marketplace-icon').removeClass('bi bi-bag');
+const fill = '-fill';
 
-            $('#marketplace-icon').addClass('bi bi-bag-fill');
+let fill_icon = str.concat(fill);
 
-            //we remove the fill icon to the community icon
-            
-            $('#community-icon').addClass('bi bi-people');
+let substr = fill_icon.substr(0, fill_icon.length - fill.length)
 
-            $('#community-icon').removeClass('bi bi-people-fill');
-        
+console.log(substr);
 
-            break;
-    
-        default:
-            break;
-    }
-}
+console.log(str.concat(fill)); */
+
+
+//we update the selector(home view, other view) color

@@ -1,7 +1,4 @@
-var Modal = function () {
-    
-
-}
+var Modal = function () {}
 
 Modal.prototype.show = function (modal, id) {
 
@@ -27,13 +24,34 @@ Modal.prototype.show = function (modal, id) {
             
         )
     }
+
+    if (modal == '.post-options') {
+        
+        //console.log(user.id, id);
+
+        let index = user.post.findIndex(x => x.ID === id);
+
+        if (index == -1) {//if the post on which we call the modal, wasn't posted by the current user,
+                            //   we need to hide the delete post option
+
+            $('#delete-post').hide();
+
+            console.log('hide');
+            
+        }else{
+
+            $('#delete-post').show();
+
+            $(modal).attr('id', id);//we assign the modal(post-options) the id of the post on which we want to act
+        }
+    }
     
 
-    
+    //$(modal).slideDown()
 
-    $('.modalView').hide()
+    //$('.modalView').hide()
     
-    $(modal).slideDown()
+    $(modal).slideToggle()
 
     $('body').addClass('no-scroll')
 
@@ -54,12 +72,6 @@ Modal.prototype.showPostFullScreen = function (username, date, title, text) {
 
 }
 
-//this is just for the full screen post modal
-
-Modal.prototype.loadComments = function () {
-    
-
-}
 Modal.prototype.hide = function () {
     
     $('.modalView').slideUp()
@@ -69,5 +81,30 @@ Modal.prototype.hide = function () {
     $(modal).removeClass('overlay')
 
 }
+
+
+document.addEventListener('click', function (event) {
+
+    /* var modalView = $('.modalView:not(.community-select)')
+
+    for (let index = 0; index < modalView.length; index++) {
+
+        const element = modalView[index];
+
+        var isClickInsideElement = element.contains(event.target);
+
+        if (!isClickInsideElement && $(element).is(":visible") && !$(element).is(':animated')) {
+
+            //we close the div if we click outside and we allow the body to be scrollable
+            $(element).slideUp()
+
+            $('body').removeClass('no-scroll')
+
+            $(element).removeClass('overlay')
+        }
+
+    } */
+
+});
 
 var modal = new Modal()

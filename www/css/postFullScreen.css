@@ -20,11 +20,32 @@
 /*reply container*/
 .reply{
 
-    border-radius: 5px;
+    width: 100% !important;
 
-    border: 1px solid rgb(201, 195, 195);
+    border-bottom: 1px solid rgb(201, 195, 195);
+
+    /* border-top: 1px solid rgb(201, 195, 195); */
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+
+
 
 }
+.reply i{
+
+    margin-bottom: 5%;
+
+    color: gray;
+}
+
+.upvoted-reply i{ 
+
+    color: rgb(247, 194, 68) !important;
+}
+
 #full-screen-post-content{
 
     width: 100%;
@@ -39,31 +60,45 @@
 
     margin-top: 5%;
 
-    box-shadow: 0px 0px 10px 0px lightgray;
+    /* box-shadow: 0px 0px 10px 0px lightgray; */
+
+    border: 1px solid lightgray;
 }
 
-.reply-username, .reply-text, .reply-upvote{
+.reply-text,.reply-username, .reply i{
+
+    float: left;
+}
+
+.reply-text{
 
     float: left;
 
-    color: gray;
+    color: black;
 
     font-style: normal;
 }
 
+.reply-username{
+
+    color: gray;
+
+    font-style: oblique;
+
+    font-size: 13px;
+}
 #reply-container{
 
 
-    border: 1px solid rgb(201, 195, 195);
+/*     border: 1px solid rgb(201, 195, 195);
+ */
 
-
-    background-color: rgb(240, 240, 240, 0.8);
 
     -webkit-backdrop-filter: blur(10px);
 
     backdrop-filter: blur(10px);
 
-    width: 98%;
+    width: 95%;
 
     margin-left: auto;
 
@@ -73,23 +108,23 @@
 
     border-radius: 5px;
 
-    box-shadow: 0px 40px 10px 0px lightgray;
+    /* box-shadow: 0px 0px 10px 0px lightgray;; */
 
-    height: 8%;
+    height: auto;
 
 }
 
-#reply-container input, #reply-container button{
+#reply-container,#reply-container input, #reply-container button{
 
     outline: none;
 
     border: none;
 
-    background-color: rgb(240, 240, 240, 0.8) !important;
+    background-color: rgb(232, 232, 232) !important;
 
-    -webkit-backdrop-filter: blur(10px);
+    /* -webkit-backdrop-filter: blur(10px);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); */
 }
 
 #reply-container button{
@@ -108,4 +143,11 @@
 .reply:last-child{
 
     margin-bottom: calc(10% + 40px) !important;
+}
+
+#reply-input-box{
+
+    width: 100%;
+
+    background-color: red !important;
 }

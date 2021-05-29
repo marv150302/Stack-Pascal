@@ -5,32 +5,44 @@ var User = function () {
     this.data = new Object()
 
     this.likedPost = []
+
+    this.upvotedComments = []
+
+    this.post = []
 }
 
 User.prototype.loadProfileData = function () {
     
     document.getElementById('profile-username').innerHTML = '@' + this.data.name;
 
-    document.getElementById('profile-view-profile-picture').src = "http://" + server.IP + "/php/"+ server.folder_name+"/img/1/pfp/1.png";
+    document.getElementById('profile-view-profile-picture').src = "http://" + server.IP + "/php/"+ server.folder_name+"/img/" + this.id + "/pfp/" + this.id + ".png";
+
+    document.getElementById('user-number-of-post').innerHTML = " " + this.data.number_of_post
+
+    document.getElementById('number-of-likes').innerHTML = " " + this.data.likes
 
     this.loadProfilePost()
 }
 
 User.prototype.loadProfilePost = function () {
-
-
     
-    let userPosts = post.data.filter(function (el) {
+    this.post = post.data.filter(function (el) {
 
         return el.userID == user.id 
 
     });
     
-    userPosts.forEach(element => {
+    this.post.forEach(element => {
+
+
         
     let post_container = document.createElement('div');
 
     post_container.className = 'profile-post row';
+
+    post_container.id = element.ID
+
+    post_container.setAttribute('onclick', "modal.show('.full-screen-post', this.id)")
 
     let profile_container = document.getElementById('profile-post-container');
 

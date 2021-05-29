@@ -92,23 +92,7 @@ HTTPRequest.prototype.fetchNewsData = function (classObject) {
 
 //for user like
 //post request
-HTTPRequest.prototype.likePost = function (postID, userID, operation) {
 
-    $.post("http://" + server.IP + "/php/" + server.folder_name + "/post.php?&type=update-like", {
-
-        id: postID,
-
-        user_id: userID,
-
-        operation: operation
-
-    },
-        function (data) {
-
-        }
-    );
-
-}
 HTTPRequest.prototype.getUserID = function (email, password, userObject) {
 
     var me = userObject
@@ -165,7 +149,9 @@ HTTPRequest.prototype.getUserData = function (userID, userObject) {
 
                 me.data.username = data.username
 
-            me.data.number_of_post = data.number_of_post
+                me.data.number_of_post = data.number_of_post
+
+                me.data.likes = data.likes
 
         }
     });
@@ -200,9 +186,36 @@ HTTPRequest.prototype.getUserLikedPost = function (userID, userObject) {
 
         }
     });
-
-
 }
+
+HTTPRequest.prototype.getUserUpvotedComments = function (userID) {
+
+    user.upvotedComments = new Array()
+
+    var me = user
+
+    $.ajax({
+
+        url: "http://" + server.IP + "/php/" + server.folder_name + "/post.php?&type=get-upvoted-comments&user_ID=" + userID,
+
+        type: 'GET',
+
+        async: false,
+
+        success: function (data) {
+
+           data = JSON.parse(data);
+
+            $.each(data, function (i, field) {
+
+                me.upvotedComments.push(field.comment_id)
+
+            });
+
+        }
+    });
+}
+
 
 //get list of all communities and their data
 HTTPRequest.prototype.getCommunities = function (communityObject) {
@@ -307,6 +320,84 @@ HTTPRequest.prototype.login = function (email, password) {
     );
 }
 
+
+HTTPRequest.prototype.loadComments = function (post_id) {
+
+
+    $.ajax({
+
+        url: "http://" + server.IP + "/php/" + server.folder_name + "/comments.php?type=get-comments",
+
+        type: 'GET',
+
+        data: {
+
+            'post_ID': post_id
+        },
+
+        async: false,
+
+        success: function (data) {
+            
+            data = JSON.parse(data);
+
+            $('#comments-container').empty()
+
+            //console.log(data);
+
+            $.each(data, function (i, field) {
+
+                user.upvotedComments = new Array()
+
+                httpRequest.getUserUpvotedComments(user.id)
+
+                //comment container 
+                let comment_container = document.createElement('div')
+
+                comment_container.className = 'row mb-3 text-center reply';
+
+                let data = document.createElement('div')
+
+                let upVoted = "col text-center"
+
+                //if the user has liked the post reply 
+                //then we need to add the 'upvoted-reply' class
+                //which basically changes the color of the upvote icon to yellow
+                //if the user hasn't liked the comment we won't add any class
+                if (user.upvotedComments.indexOf(this.ID) != -1) {
+                    
+                    upVoted += " upvoted-reply";
+                }
+
+
+                data.className =  upVoted;
+
+                data.id = this.ID
+
+                /* upvote icon */
+
+                data.insertAdjacentHTML('afterBegin', "<div class='row text-center'><div class='col'> <i id='reply-upvote' onclick='post.upvoteComment(this)' class='bi bi-arrow-up-square-fill reply-upvote'>" + " " + field.upvotes + " </i></div></div>")
+
+                //text
+
+                data.insertAdjacentHTML('afterBegin', "<div class='row text-center'><div class='col'> <p class='reply-text' >" + field.text + "</p></div></div>")
+
+                //username
+
+                data.insertAdjacentHTML('afterBegin', "<div class='row text-center'><div class='col'> <p class='reply-username' >" + "@" + field.username + "</p></div></div>")
+
+                comment_container.append(data)
+
+                $('#comments-container').append(comment_container);
+
+            });
+
+        }
+    });
+}
+
+
+/* post http requests */
 HTTPRequest.prototype.postComment = function (text, post_id) {
 
     let id = $.ajax({
@@ -335,65 +426,42 @@ HTTPRequest.prototype.postComment = function (text, post_id) {
     });
 
 }
+HTTPRequest.prototype.deletePost = function (post_id) {
+    
+    console.log(post_id);
 
-HTTPRequest.prototype.loadComments = function (post_id) {
+    let id = $.ajax({
 
+        url: "http://" + server.IP + "/php/" + server.folder_name + "/post.php?type=delete-post",
 
-    $.ajax({
-
-        url: "http://" + server.IP + "/php/" + server.folder_name + "/comments.php?type=get-comments",
-
-        type: 'GET',
+        type: 'POST',
 
         data: {
 
-            'post_ID': post_id
+            'postID': post_id,
         },
 
         async: false,
 
         success: function (data) {
 
-            data = JSON.parse(data);
+            console.log(data);
 
-            $('#comments-container').empty()
+            //httpRequest.loadComments(post_id)
 
-            $.each(data, function (i, field) {
-
-                //comment container 
-                let comment_container = document.createElement('div')
-
-                comment_container.className = 'row mb-3 text-center reply';
-
-                let data = document.createElement('div')
-
-                data.className = 'col text-center';
-
-                //upvote button
-
-                data.insertAdjacentHTML('afterBegin', "<div class='row'><div class='col'> <i class='bi bi-arrow-up-square-fill reply-upvote'>" + " " + field.upvotes + " </i></div></div>")
-
-                //text
-
-                data.insertAdjacentHTML('afterBegin', "<div class='row'><div class='col'> <p class='reply-text' >" + field.text + "</p></div></div>")
-
-                //username
-
-                data.insertAdjacentHTML('afterBegin', "<div class='row'><div class='col'> <p class='reply-username' >" + "@" + field.username + "</p></div></div>")
-
-                comment_container.append(data)
-
-                $('#comments-container').append(comment_container);
-
-            });
+            //$('#reply-input-box').val('')
 
         }
     });
+
 }
 
 HTTPRequest.prototype.postText = function (text, title) {
 
-    console.log(text);
+    let index = community.data.findIndex(x => x.name === community.selected_community);//we get the index of the community from the array object
+
+    let community_id = community.data[index].ID;//we retrieve the id 
+
 
     let id = $.ajax({
 
@@ -408,28 +476,24 @@ HTTPRequest.prototype.postText = function (text, title) {
 
             'userID': user.id,
 
-            'community':  community.data.findIndex(x => x.name === community.selected_community)//we get the id
+            'community':  community_id//we get the id
         },
 
         async: false,
 
         success: function (data) {
 
-            console.log(data);
-
-            modal.hide()
+            modal.hide()//once we have uploaded to the database we hide the modal
 
         }
     });
 
 }
-HTTPRequest.prototype.postImage = function (fileData, text, title) {
+HTTPRequest.prototype.postImage = function (fileData, callback) {
 
     var formData = new FormData();
 
     formData.append('imageData', fileData);
-
-    console.log(formData);
 
     $.ajax({
 
@@ -448,8 +512,8 @@ HTTPRequest.prototype.postImage = function (fileData, text, title) {
 
          success: function (data) {
 
-            httpRequest.postText(text, title) //we upload the text and the title 
-                                            // once we have uploaded the image to the database
+            callback() //we upload the text and the title 
+                      // once we have uploaded the image to the database
         }, 
 
         error: function (data) {
@@ -458,5 +522,72 @@ HTTPRequest.prototype.postImage = function (fileData, text, title) {
 
         }
     });
+}
+
+HTTPRequest.prototype.likePost = function (postID, userID, operation) {
+
+    $.post("http://" + server.IP + "/php/" + server.folder_name + "/post.php?&type=update-like", {
+
+        id: postID,
+
+        user_id: userID,
+
+        operation: operation
+
+    },
+        function (data) {
+
+            console.log(data);
+
+        }
+    );
+
+}
+
+HTTPRequest.prototype.upvoteComment = function (comment_id, operation) {
+
+    let id = $.ajax({
+
+        url: "http://" + server.IP + "/php/" + server.folder_name + "/post.php?type=upvote-comment",
+
+        type: 'POST',
+
+        data: {
+            "comment_id": comment_id,
+
+            "user_id" : user.id,
+
+            "operation" : operation
+        },
+
+        async: false,
+
+    });
+
+}
+
+HTTPRequest.prototype.postBook = function () {
+    
+    let name = $('#book-name').val();
+
+    let price = $('#book-price').val()
+
+    let isbn = $('#book-isbn').val()
+
+    let phone_number = $('#seller-phone-number').val()
+
+    let email = $('#seller-email').val()
+
+    let subject = $('#book-subjects').val()
+
+    let condition = $('#book-condition').val()
+
+    let editor = $('#book-editor').val()
+
+    let details = $('#book-details').val()
+
+
+    console.log(name, price, isbn, phone_number,email, subject, condition, editor, details);
+
 }
 var httpRequest = new HTTPRequest()
